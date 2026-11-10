@@ -6,7 +6,7 @@ Agent skills that carry decisions across sessions.
 
 Most skill flows assume the current conversation is shared memory: grill here, write the spec there, and the reasoning in between evaporates when the session ends. These skills end by leaving a record (a ticket, a spec, a Decision Log) that a fresh context can pick up without asking a question.
 
-They follow the conventions of [mattpocock/skills](https://github.com/mattpocock/skills) and sit next to those skills well, but do not depend on them.
+They are built on top of [mattpocock/skills](https://github.com/mattpocock/skills): they call its model-invoked skills (`grilling`) and hand off to its user-invoked ones (`/to-tickets`, `/tdd`). Install that repo first and run `/setup-matt-pocock-skills` in your project.
 
 ## Installation
 
@@ -63,7 +63,7 @@ cp -r skills/engineering/grill-to-scenarios <repo>/.claude/skills/
 /grill-to-scenarios #42
 ```
 
-The skill reads the repo's conventions first (`AGENTS.md`, `CLAUDE.md`, `docs/agents/*.md`, issue templates, spec and ADR folders) and follows them. Without conventions it writes to GitHub issues, or to `docs/stories/<slug>.md`. A repo configured with `/setup-matt-pocock-skills` is used as is.
+Publishes to the issue tracker configured by `/setup-matt-pocock-skills`, using the repo's issue template fields when there is one.
 
 ## Reference
 
@@ -73,13 +73,13 @@ Skills split on one axis: who can invoke them. **User-invoked** skills are reach
 
 **User-invoked**
 
-- **[grill-to-scenarios](./skills/engineering/grill-to-scenarios/SKILL.md)**: Grill an idea, request, bug, or issue into a ticket or story-based spec with Given/When/Then test scenarios, and leave the decisions on record.
+- **[grill-to-scenarios](./skills/engineering/grill-to-scenarios/SKILL.md)**: Grill a request into a sized record (ticket or spec) with Given/When/Then scenarios and a Decision Log, so the next session starts from the record, not the chat.
 
   ```
-  grilling → sizing (ticket / spec) → record (ticket / story-based spec) → test scenarios (Given/When/Then)
+  grilling → sizing (ticket / spec) → record + scenarios + Decision Log → Next: /tdd #n  or  /to-tickets #n
   ```
 
-  Ends at scenario sentences. No code, no test code, no branches, no commits: `/tdd` or the repo's own procedure takes over.
+  What it adds on top of `/grill-me` → `/to-spec`: a sizing call the user makes, Given/When/Then scenarios on every acceptance criterion, and a Decision Log (decisions, rejected alternatives, open questions) in the record itself.
 
 ### In progress
 

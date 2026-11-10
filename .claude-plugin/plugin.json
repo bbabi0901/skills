@@ -1,7 +1,7 @@
 {
   "name": "bbabi0901-skills",
   "version": "0.1.0",
-  "description": "Agent skills that carry decisions across sessions: grill a request into a ticket or spec with test scenarios, and leave the decisions on record.",
+  "description": "Skills built on mattpocock/skills that carry decisions across sessions: grill a request into a sized ticket or spec with test scenarios and a Decision Log.",
   "author": {
     "name": "bbabi0901",
     "url": "https://github.com/bbabi0901"

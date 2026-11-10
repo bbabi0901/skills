@@ -6,7 +6,7 @@ Skills for code work.
 
 Reachable only when you type them (Claude Code: `disable-model-invocation: true`; Codex: `policy.allow_implicit_invocation: false` in `agents/openai.yaml`).
 
-- **[grill-to-scenarios](./grill-to-scenarios/SKILL.md)**: Grill an idea, request, bug, or issue into a ticket or story-based spec with Given/When/Then test scenarios, and leave the decisions on record.
+- **[grill-to-scenarios](./grill-to-scenarios/SKILL.md)**: Grill a request into a sized record (ticket or spec) with Given/When/Then scenarios and a Decision Log, so the next session starts from the record, not the chat.
 
 ## Model-invoked
 
