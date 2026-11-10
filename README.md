@@ -6,7 +6,15 @@ Agent skills that carry decisions across sessions.
 
 Most skill flows assume the current conversation is shared memory: grill here, write the spec there, and the reasoning in between evaporates when the session ends. These skills end by leaving a record (a ticket, a spec, a Decision Log) that a fresh context can pick up without asking a question.
 
-They are built on top of [mattpocock/skills](https://github.com/mattpocock/skills): they call its model-invoked skills (`grilling`) and hand off to its user-invoked ones (`/to-tickets`, `/tdd`). Install that repo first and run `/setup-matt-pocock-skills` in your project.
+They are built on top of [mattpocock/skills](https://github.com/mattpocock/skills) and need it installed. What they use from it:
+
+| Skill | How |
+|---|---|
+| `grilling` | called with the Skill tool |
+| `setup-matt-pocock-skills` | its per-repo config (`docs/agents/*.md`) tells the skill where to publish |
+| `to-tickets`, `tdd` | the next step after the record is published |
+
+Checked against mattpocock/skills v1.3.2. Install that repo first and run `/setup-matt-pocock-skills` in your project.
 
 ## Installation
 
