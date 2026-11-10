@@ -1,0 +1,21 @@
+{
+  "name": "bbabi0901-skills",
+  "version": "0.1.0",
+  "description": "Agent skills that carry decisions across sessions: grill a request into a ticket or spec with test scenarios, and leave the decisions on record.",
+  "author": {
+    "name": "bbabi0901",
+    "url": "https://github.com/bbabi0901"
+  },
+  "repository": "https://github.com/bbabi0901/skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "grilling",
+    "spec",
+    "tickets",
+    "test-scenarios"
+  ],
+  "skills": [
+    "./skills/engineering/grill-to-scenarios"
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Skill Name"
+  short_description: "One short line for the Codex skill picker"
+# Keep the policy block only for user-invoked skills (pairs with disable-model-invocation: true).
+policy:
+  allow_implicit_invocation: false

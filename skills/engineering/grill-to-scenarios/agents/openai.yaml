@@ -1,0 +1,5 @@
+interface:
+  display_name: "Grill To Scenarios"
+  short_description: "Grill a request into a ticket or spec with test scenarios"
+policy:
+  allow_implicit_invocation: false

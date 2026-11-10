@@ -1,0 +1,23 @@
+{
+  "name": "bbabi0901",
+  "owner": {
+    "name": "bbabi0901",
+    "url": "https://github.com/bbabi0901"
+  },
+  "description": "bbabi0901's agent skills, as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "bbabi0901-skills",
+      "source": "./",
+      "description": "Agent skills that carry decisions across sessions: grilling to tickets/specs with test scenarios.",
+      "category": "engineering",
+      "keywords": [
+        "skills",
+        "grilling",
+        "spec",
+        "tickets",
+        "test-scenarios"
+      ]
+    }
+  ]
+}

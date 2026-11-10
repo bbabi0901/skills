@@ -1,0 +1,1 @@
+Put material the agent needs at only one step here (formats, criteria tables, checklists, examples), one file per topic, and link each from the step in `SKILL.md` that uses it. Delete this file when the folder has real content; delete the folder if the skill needs none.
