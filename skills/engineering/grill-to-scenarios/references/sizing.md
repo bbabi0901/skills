@@ -24,7 +24,7 @@
 
 ## Grey areas
 
-- **Wide refactor** (mechanical like a rename, but with a large blast radius): spec. Slices go expand (add the new shape) → migrate (callers in batches) → contract (delete the old shape).
+- **Wide refactor** (mechanical like a rename, but with a large blast radius): spec. `/to-tickets` knows how to sequence it.
 - **Only an assumption to check**: spike ticket. Its AC reads "what was checked and what was decided".
 - **Exactly one ticket criterion fails**: show that criterion to the user and ask whether to shrink the scope into a ticket or go spec.
 

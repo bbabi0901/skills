@@ -1,20 +1,18 @@
 ---
 name: grill-to-scenarios
-description: Grill a request into a sized record (ticket or spec) with Given/When/Then scenarios and a Decision Log, so the next session starts from the record, not the chat.
+description: Grill a request, size it (ticket or spec), and write Given/When/Then scenarios plus a Decision Log, ready for /to-spec or /to-tickets to publish.
 disable-model-invocation: true
 ---
 
 # grill-to-scenarios
 
-Grilling → sizing → record → test scenarios, in one conversation. What remains is one record an implementer can start writing tests from without asking a question, and a **Decision Log** that outlives the conversation.
+Grilling → sizing → scenarios and Decision Log, then hand the conversation to `/to-spec` or `/to-tickets` to publish. It fills the gap between `/grill-me` and `/to-spec`: a sizing call the user makes, a test scenario for every acceptance criterion, and a Decision Log so the next session starts from the record, not the chat.
 
-Write no code and no test code. This skill ends at scenario sentences; red → green is `/tdd`'s job.
-
-The issue tracker and domain doc layout should have been provided to you (`docs/agents/*.md`). If not, tell the user to run `/setup-matt-pocock-skills`.
+Write no code and no test code, and publish nothing yourself. This skill ends with two finished sections in the conversation; the publishing skills carry them into the record.
 
 ## 1. Facts first
 
-If the input is an issue number, fetch it and read the full body and comments. Read the related code, the project's domain glossary, and ADRs in the area, then summarize in five lines or fewer. Never ask what you can learn by reading.
+If the input is an issue number, fetch it and read the full body and comments. Read the related code, the project's domain glossary, and ADRs in the area, then summarize in five lines or fewer.
 
 ## 2. Grilling
 
@@ -26,41 +24,49 @@ Call the Skill tool with "grilling". Seed the design tree with these branches, i
 4. **Failure paths**: which of empty result, permission error, network failure, bad input can happen, and what should show then.
 5. **Riskiest assumption**: the one thing that changes the plan if wrong, and how to check it.
 
-Keep a running list of decisions, rejected alternatives, and open questions as the rounds settle: that list becomes the Decision Log.
+Keep a running list of decisions, rejected alternatives, and open questions as the rounds settle.
 
 ## 3. Sizing
 
 Judge against [references/sizing.md](references/sizing.md) and show the recommended size with each criterion's verdict as a table. The user decides.
 
-- Ticket-sized → 4-A
-- Spec-sized → 4-B
-- An assumption still needs checking → propose one spike ticket first (its deliverable is a decision, not a feature).
+## 4. Scenarios and Decision Log
 
-## 4. Record
+Following [references/scenario-format.md](references/scenario-format.md), write Given/When/Then for every acceptance criterion: at least one failure path, one scenario seam, and a separate list of steps only a human can check.
 
-- **4-A Ticket**: write one ticket in the shape of [references/ticket-format.md](references/ticket-format.md).
-- **4-B Spec**: write the spec in the shape of [references/spec-format.md](references/spec-format.md). Do not slice it into tickets here; `/to-tickets` owns slicing.
+Then print these two sections, finished, in the conversation:
 
-The repo's issue template fields, if any, come first; append the sections the template lacks. Show the draft, get approval, then publish to the configured tracker.
+```markdown
+## Test scenarios
+Scenario seam: <module or boundary>
+- Given … When … Then …
+- Given … When … Then …   (failure path)
+Human checks: <"none" if there are none>
 
-## 5. Test scenarios
+## Decision Log
+Decisions:
+1. <what the grilling settled>
+Rejected alternatives:
+- <alternative>: <why>
+Open questions:
+- <"none" if there are none>
+```
 
-Following [references/scenario-format.md](references/scenario-format.md), write Given/When/Then for every acceptance criterion and put them in the record before publishing.
+No file paths and no code snippets in either; they go stale.
 
-- At least one failure path.
-- The scenario sentence is the test name, verbatim.
-- One scenario seam: the outermost boundary the test can sit at.
-- Steps only a human can check go in a separate list.
+## 5. Hand off
 
-## 6. Finish
+Tell the user what to run next, and that the two sections above go into the record verbatim:
 
-Print the record's location and the next step in one line:
+- **Ticket-sized**: `/to-tickets`. One ticket; both sections go in its body under the acceptance criteria.
+- **Spec-sized**: `/to-spec`, then `/to-tickets #<n>`. Scenarios go under Testing Decisions, the Decision Log under Further Notes.
+- **Assumption to check first**: `/to-tickets` with one spike ticket whose acceptance criterion is the decision itself.
 
-- Ticket: `Next: /tdd #<n>`
-- Spec: `Next: /to-tickets #<n>`
+After that, `/tdd`.
 
 ## Never
 
 - Code, test code, branches, commits
+- Publishing a ticket or spec yourself
 - Filling a case-less request with guesses
 - Deciding size or scope on the user's behalf

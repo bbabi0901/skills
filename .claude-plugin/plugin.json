@@ -1,7 +1,7 @@
 {
   "name": "bbabi0901-skills",
   "version": "0.1.0",
-  "description": "Skills built on mattpocock/skills that carry decisions across sessions: grill a request into a sized ticket or spec with test scenarios and a Decision Log.",
+  "description": "Skills built on mattpocock/skills that carry decisions across sessions: grilling, sizing, test scenarios and a Decision Log, ready for to-spec or to-tickets to publish.",
   "author": {
     "name": "bbabi0901",
     "url": "https://github.com/bbabi0901"

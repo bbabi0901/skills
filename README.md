@@ -11,8 +11,8 @@ They are built on top of [mattpocock/skills](https://github.com/mattpocock/skill
 | Skill | How |
 |---|---|
 | `grilling` | called with the Skill tool |
-| `setup-matt-pocock-skills` | its per-repo config (`docs/agents/*.md`) tells the skill where to publish |
-| `to-tickets`, `tdd` | the next step after the record is published |
+| `to-spec`, `to-tickets` | publish the record; this skill hands the conversation to them |
+| `tdd` | the step after that |
 
 Checked against mattpocock/skills v1.3.2. Install that repo first and run `/setup-matt-pocock-skills` in your project.
 
@@ -71,7 +71,7 @@ cp -r skills/engineering/grill-to-scenarios <repo>/.claude/skills/
 /grill-to-scenarios #42
 ```
 
-Publishes to the issue tracker configured by `/setup-matt-pocock-skills`, using the repo's issue template fields when there is one.
+It publishes nothing itself. It ends with the scenarios and Decision Log finished in the conversation and tells you which Matt skill to run to publish them.
 
 ## Reference
 
@@ -81,13 +81,13 @@ Skills split on one axis: who can invoke them. **User-invoked** skills are reach
 
 **User-invoked**
 
-- **[grill-to-scenarios](./skills/engineering/grill-to-scenarios/SKILL.md)**: Grill a request into a sized record (ticket or spec) with Given/When/Then scenarios and a Decision Log, so the next session starts from the record, not the chat.
+- **[grill-to-scenarios](./skills/engineering/grill-to-scenarios/SKILL.md)**: Grill a request, size it (ticket or spec), and write Given/When/Then scenarios plus a Decision Log, ready for `/to-spec` or `/to-tickets` to publish.
 
   ```
-  grilling → sizing (ticket / spec) → record + scenarios + Decision Log → Next: /tdd #n  or  /to-tickets #n
+  grilling → sizing (ticket / spec) → scenarios + Decision Log → /to-tickets  or  /to-spec → /to-tickets → /tdd
   ```
 
-  What it adds on top of `/grill-me` → `/to-spec`: a sizing call the user makes, Given/When/Then scenarios on every acceptance criterion, and a Decision Log (decisions, rejected alternatives, open questions) in the record itself.
+  What it adds between `/grill-me` and `/to-spec`: a sizing call the user makes, a Given/When/Then scenario for every acceptance criterion, and a Decision Log (decisions, rejected alternatives, open questions) that goes into the record.
 
 ### In progress
 
