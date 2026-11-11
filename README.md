@@ -71,7 +71,7 @@ cp -r skills/engineering/grill-to-scenarios <repo>/.claude/skills/
 /grill-to-scenarios #42
 ```
 
-It publishes nothing itself. It ends with the scenarios and Decision Log finished in the conversation and tells you which Matt skill to run to publish them.
+It publishes nothing itself. It ends with the acceptance criteria and Decision Log finished in the conversation and tells you which Matt skill to run to publish them.
 
 ## Reference
 
@@ -81,13 +81,13 @@ Skills split on one axis: who can invoke them. **User-invoked** skills are reach
 
 **User-invoked**
 
-- **[grill-to-scenarios](./skills/engineering/grill-to-scenarios/SKILL.md)**: Grill a request, size it (ticket or spec), and write Given/When/Then scenarios plus a Decision Log, ready for `/to-spec` or `/to-tickets` to publish.
+- **[grill-to-scenarios](./skills/engineering/grill-to-scenarios/SKILL.md)**: Grill a request, size it (ticket or spec), and write its acceptance criteria as Given/When/Then scenarios plus a Decision Log, ready for `/to-spec` or `/to-tickets` to publish.
 
   ```
-  grilling → sizing (ticket / spec) → scenarios + Decision Log → /to-tickets  or  /to-spec → /to-tickets → /tdd
+  grilling → sizing (ticket / spec) → acceptance criteria + Decision Log → /to-tickets  or  /to-spec → /to-tickets → /tdd
   ```
 
-  What it adds between `/grill-me` and `/to-spec`: a sizing call the user makes, a Given/When/Then scenario for every acceptance criterion, and a Decision Log (decisions, rejected alternatives, open questions) that goes into the record.
+  What it adds between `/grill-me` and `/to-spec`: a sizing call the user makes, acceptance criteria written as Given/When/Then scenarios, and a Decision Log (decisions, rejected alternatives, open questions) that goes into the record.
 
 ### In progress
 

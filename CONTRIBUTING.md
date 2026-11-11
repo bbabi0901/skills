@@ -28,4 +28,4 @@ This is a personal skills repo. Issues and PRs are welcome, but the bar is: does
 
 - English in `SKILL.md` and `references/`.
 - No em-dashes. No file paths or code snippets in the records a skill produces; they go stale.
-- One question at a time when a skill interviews the user, each with a recommended answer.
+- A skill that interviews the user calls `grilling`; it does not carry its own question loop.

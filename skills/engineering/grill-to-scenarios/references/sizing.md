@@ -6,7 +6,7 @@
 |---|---|
 | One behaviour | Is there one user-visible change (one bug counts)? |
 | 3 ACs or fewer | Do the acceptance criteria fit in three lines? |
-| One scenario seam | Is there one boundary to hang the tests on? |
+| One seam | Is there one boundary to hang the tests on? |
 | No new contract | No new module, public interface, API, or data format? |
 | Easy to reverse | Is it cheap to change later? |
 | One session | Can a fresh context implement and verify it in one go? |
@@ -25,7 +25,6 @@
 ## Grey areas
 
 - **Wide refactor** (mechanical like a rename, but with a large blast radius): spec. `/to-tickets` knows how to sequence it.
-- **Only an assumption to check**: spike ticket. Its AC reads "what was checked and what was decided".
 - **Exactly one ticket criterion fails**: show that criterion to the user and ask whether to shrink the scope into a ticket or go spec.
 
 ## Display format
