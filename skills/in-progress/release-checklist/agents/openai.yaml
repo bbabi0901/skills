@@ -1,0 +1,5 @@
+interface:
+  display_name: "Release Checklist"
+  short_description: "Check a release against merge queue, flag and staged rollout practices"
+policy:
+  allow_implicit_invocation: false

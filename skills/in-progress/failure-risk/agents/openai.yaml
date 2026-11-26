@@ -1,0 +1,3 @@
+interface:
+  display_name: "Failure Risk"
+  short_description: "Draft how important features can fail for users, graded by severity"

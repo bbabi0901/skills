@@ -1,0 +1,3 @@
+interface:
+  display_name: "Error Grading"
+  short_description: "Grade a product's failures in three confirmed stages"

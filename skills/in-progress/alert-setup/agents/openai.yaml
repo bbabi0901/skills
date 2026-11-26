@@ -1,0 +1,3 @@
+interface:
+  display_name: "Alert Setup"
+  short_description: "Draft alert rules per failure severity and the steps only a person can do"

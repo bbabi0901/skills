@@ -1,0 +1,3 @@
+interface:
+  display_name: "Criticality Map"
+  short_description: "Draft a feature map graded by business cost, for a person to confirm"
