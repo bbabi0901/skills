@@ -36,7 +36,7 @@ Merge rows that describe the same failure from two features. Then apply [referen
 
 ## 4. Save the draft, show it, and stop
 
-Write the draft to `.review/failure-risk.md` in the format in [references/format.md](references/format.md) with `Status: draft` before you show anything. The file is the state: a draft that exists only in the conversation is lost when the session ends.
+Write the draft to `.review/failure-risk.md` in the format in [references/format.md](references/format.md) with `Status: draft` before you show anything. File and line are how you check a row in this session; the document names the feature and the function instead, because line numbers go stale. The file is the state: a draft that exists only in the conversation is lost when the session ends.
 
 Then show the draft. Print every `S1` row. For `S2` and `S3`, print the count and the few that matter most, and point to the file for the rest: a table of dozens of rows is not read. List the unverified ones and every grade you were unsure about as questions. Say which exact word confirms the document. Then stop and wait. The user corrects severities and adds failures they know from experience (support messages, past incidents). Apply the changes to the file and show it again until they say it is right.
 

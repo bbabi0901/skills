@@ -27,5 +27,5 @@ This is a personal skills repo. Issues and PRs are welcome, but the bar is: does
 ## Writing rules
 
 - English in `SKILL.md` and `references/`.
-- No em-dashes. No file paths or code snippets in the records a skill produces; they go stale.
+- No em-dashes. No file paths or code snippets in the records a skill produces; they go stale. A data file that a tool reads, such as a list of path globs, may hold paths; the skill says how it is refreshed.
 - A skill that interviews the user calls `grilling`; it does not carry its own question loop.
